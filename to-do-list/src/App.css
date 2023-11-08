@@ -1,0 +1,60 @@
+body{
+  background-image: linear-gradient(#030844 , #419bb6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+.container{
+  max-width: 1280px;
+  padding: 60px;
+  text-align: center;
+  background-color: #f5f5f589;
+  border: 5px solid rgb(5, 20, 97);
+  border-radius: 20px;
+}
+h2{
+  font-size:40px ;
+  font-family: ui-serif;
+  color: #010738;
+}
+.button{
+  background-color: hwb(225 1% 75%);
+  color: #f4fdfe;
+  font-weight: bolder;
+  border: 1px solid white;
+  border-radius: 15px;
+  margin-left: 8px;
+}
+.button1{
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  margin-left: 30px;
+  height: 40px;
+  margin-top: 10px;
+
+}
+span{
+  font-size: 24px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.li{
+  list-style-type: none
+}
+/* input[type=checkbox]:checked+span {
+  color: rgb(99, 99, 240);
+  text-decoration: line-through;
+ } */
+ .input{
+    height: 39px;
+    width: 300px;
+    border: 3px solid rgb(5, 20, 97);
+    border-radius: 20px;
+ }
+ input{
+  height: 16px;
+  width: 16px;
+  margin-right: 15px;
+ }
