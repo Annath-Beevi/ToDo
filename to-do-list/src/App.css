@@ -43,10 +43,14 @@ span{
 .li{
   list-style-type: none
 }
-/* input[type=checkbox]:checked+span {
-  color: rgb(99, 99, 240);
+input[type=checkbox] {
+ margin-right: 0.5rem
+ }
+.completed {
   text-decoration: line-through;
- } */
+  opacity: 0.5;
+}
+
  .input{
     height: 39px;
     width: 300px;
