@@ -4,6 +4,11 @@ import axios from 'axios'
 
 function App() {
   const [task, setTask] = useState([])
+  const [text, setText] = useState("")
+  const [isUpdating, setIsUpdating] = useState(false)
+  const [id, setId] = useState("")
+  const [isChecked, setIsChecked] = useState(false)
+  const ref = useRef(null);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -12,15 +17,15 @@ function App() {
 
   const getTask = async () => {
     await axios.get("http://localhost:5000/api/tasks")
-    .then((fetched) => setTask(fetched.data.task))
+      .then((fetched) => setTask(fetched.data.task))
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     getTask()
-  },[])
+  }, [])
 
-  const addTask=(e)=>{
-    const {value, name} = e.target;
+  const handleChange = (e) => {
+    const { value, name } = e.target;
 
     setFormData((preve) => {
       return {
@@ -30,19 +35,20 @@ function App() {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const addTask = async (e) => {
     e.preventDefault()
     try {
-      if(task.length !== 0){
+      if (task.length !== 0) {
         await axios.post('http://localhost:5000/api/tasks', formData);
       }
     } catch (error) {
       console.log(error);
     }
     getTask()
+    ref.current.value = '';
   };
 
-  const deletetask= async (id)=> {
+  const deletetask = async (id) => {
     try {
       await axios.delete(`http://localhost:5000/api/tasks/${id}`);
     } catch (error) {
@@ -52,40 +58,57 @@ function App() {
   };
 
   const updateTask = async (id) => {
-    try{
-      await axios.patch(`http://localhost:5000/api/tasks/${id}`,formData);
-    }catch(error){
-      console.log(error)
-    }
+    ref.current.focus();
+    await axios.patch(`http://localhost:5000/api/tasks/${id}`, formData);
     getTask()
+    ref.current.value = '';
   };
 
-  const handleCheckbox =  (index) => {
-    const checkTask = task.map((task, i) => 
-      i === index ? { ...task, completed: !task.completed} : task  
-    )
-    setTask(checkTask)
+  const handleCheckbox = async (id) => {
+    try{
+      await axios.patch(`http://localhost:5000/api/tasks/${id}`, {
+        completed: !isChecked
+      })
+      setFormData(formData)
+    }
+   catch(err){
+    console.log(err)
+   }
+   getTask()
   };
+
 
   return (
     <>
       <div className='container'>
-      <h2>TO-DO-LIST</h2>
-      <div>
-      <input className='input' type="text" name='name' placeholder='Type Here' onChange={addTask} />
-      <button className='button' onClick={handleSubmit}>Add Task</button>
-      </div>
-      <ul>
-        {task.map((data, index)=>
-        <li className='li' key={index}> 
-        <input type="checkbox" checked={data.completed} onChange={() => handleCheckbox(index)} /> 
-        <span className={data.completed ? "completed" : ""}>{data.name}</span>
-        <button className='button1' onClick={()=>deletetask(data._id)}>Delete</button>
-        <button className='button1' onClick={()=>updateTask(data._id)}>Update</button>
-        </li> 
-        )}
-      </ul>
-      </div>
+        <h2>TO-DO-LIST</h2>
+        <div className='div'>
+          <input className='input' type="text" name='name' ref={ref} placeholder='Type Here' onChange={handleChange} />
+          {isUpdating === false ? <button className='button' onClick={addTask}>ADD TASK</button>
+            : <button className='button' onClick={() => {
+              updateTask(id)
+              setIsUpdating(false)
+            }}>UPDATE</button>}
+
+        </div>
+        <ul>
+          {task.map((data) =>
+            <li className='li' key={data._id}>
+              <input type="checkbox" className='checkbox' checked={data.completed} onClick={() => {
+                handleCheckbox(data._id)
+
+              }} />
+              <span>{data.name}</span>
+              <button className='button1' onClick={() => deletetask(data._id)}>Delete</button>
+              <button className='button1' onClick={() => {
+                setIsUpdating(true)
+                setId(data._id)
+                ref.current.focus()
+              }}>Edit</button>
+            </li>
+          )}
+        </ul>
+      </div >
     </>
   )
 }

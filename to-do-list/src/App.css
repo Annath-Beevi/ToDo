@@ -1,64 +1,88 @@
-body{
-  background-image: linear-gradient(#030844 , #419bb6);
+body {
+  /* background-image: linear-gradient(#030844, #419bb6); */
+  background-image: url(https://images.pexels.com/photos/3243/pen-calendar-to-do-checklist.jpg?auto=compress&cs=tinysrgb&w=600);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
 }
-.container{
+
+.container {
   max-width: 1280px;
-  padding: 60px;
+  padding: 70px;
   text-align: center;
-  background-color: #f5f5f589;
-  border: 5px solid rgb(5, 20, 97);
+  background-color: rgb(58, 50, 50);
+  border: 6px solid rgb(9, 9, 9);
   border-radius: 20px;
 }
-h2{
-  font-size:40px ;
-  font-family: ui-serif;
-  color: #010738;
+
+h2 {
+  font-size: 30px;
+  font-family: 'Salsa', cursive;
+  font-weight: bold;
+  color: white;
 }
-.button{
-  background-color: hwb(225 1% 75%);
+
+.button {
+  background-color: rgb(14, 13, 13);
   color: #f4fdfe;
   font-weight: bolder;
-  border: 1px solid white;
-  border-radius: 15px;
-  margin-left: 8px;
+  border: 2px solid white;
+  border-radius: 22px;
+  margin-left: 6px;
+  padding: 12px;
+  cursor: pointer;
 }
-.button1{
+
+.div{
+  margin-bottom: 40px;
+}
+
+.li {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+span {
+  font-family: 'Mukta', sans-serif;
+  font-size: large;
+  color: white;
+}
+
+.button1 {
   background-color: white;
-  border: 1px solid white;
-  border-radius: 15px;
-  margin-left: 30px;
-  height: 40px;
-  margin-top: 10px;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
 
+.checkbox {
+  margin-left: 10px;
 }
-span{
-  font-size: 24px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-.li{
-  list-style-type: none
-}
-input[type=checkbox] {
- margin-right: 0.5rem
- }
-.completed {
+
+input[type=checkbox]:checked+span {
+  color: rgb(255, 255, 255);
   text-decoration: line-through;
-  opacity: 0.5;
+  text-decoration-color: #d97d7d;
+ }
+
+
+.input {
+  height: 39px;
+  width: 300px;
+  border: 3px solid black;
+  border-radius: 20px;
 }
 
- .input{
-    height: 39px;
-    width: 300px;
-    border: 3px solid rgb(5, 20, 97);
-    border-radius: 20px;
- }
- input{
+input {
   height: 16px;
   width: 16px;
   margin-right: 15px;
- }
+}
