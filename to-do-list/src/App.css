@@ -1,6 +1,6 @@
 body {
   /* background-image: linear-gradient(#030844, #419bb6); */
-  background-image: url(https://images.pexels.com/photos/3243/pen-calendar-to-do-checklist.jpg?auto=compress&cs=tinysrgb&w=600);
+  background-image: url(https://images.pexels.com/photos/1072179/pexels-photo-1072179.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
   background-repeat: no-repeat;
   background-size: 100% 100%;
   display: flex;
@@ -14,27 +14,28 @@ body {
   max-width: 1280px;
   padding: 70px;
   text-align: center;
-  background-color: rgb(58, 50, 50);
-  border: 6px solid rgb(9, 9, 9);
+  background-color: rgba(252, 240, 132, 0.804);
+  border: 5px solid rgb(239, 229, 216);
   border-radius: 20px;
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 32px;
   font-family: 'Salsa', cursive;
-  font-weight: bold;
-  color: white;
+  font-weight: bolder;
+  color: rgb(1, 43, 16);
 }
 
 .button {
-  background-color: rgb(14, 13, 13);
-  color: #f4fdfe;
+  background-color: rgb(65, 1, 1);
+  color: white;
   font-weight: bolder;
   border: 2px solid white;
-  border-radius: 22px;
+  border-radius: 18px;
   margin-left: 6px;
-  padding: 12px;
+  padding: 10px;
   cursor: pointer;
+  font-size: medium
 }
 
 .div{
@@ -51,16 +52,18 @@ h2 {
 span {
   font-family: 'Mukta', sans-serif;
   font-size: large;
-  color: white;
+  font-weight: 500;
+  color: black;
 }
 
 .button1 {
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 20px;
-  padding: 8px;
+  background-color: black;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 6px;
   font-weight: 600;
   cursor: pointer;
+  color: white;
 }
 
 .checkbox {
@@ -70,14 +73,14 @@ span {
 input[type=checkbox]:checked+span {
   color: rgb(255, 255, 255);
   text-decoration: line-through;
-  text-decoration-color: #d97d7d;
+  text-decoration-color: #f5f1f1;
  }
 
 
 .input {
   height: 39px;
   width: 300px;
-  border: 3px solid black;
+  border: 3px solid rgb(61, 61, 61);
   border-radius: 20px;
 }
 

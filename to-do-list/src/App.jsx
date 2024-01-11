@@ -99,12 +99,12 @@ function App() {
 
               }} />
               <span>{data.name}</span>
-              <button className='button1' onClick={() => deletetask(data._id)}>Delete</button>
+              <button className='button1' onClick={() => deletetask(data._id)}>DELETE</button>
               <button className='button1' onClick={() => {
                 setIsUpdating(true)
                 setId(data._id)
                 ref.current.focus()
-              }}>Edit</button>
+              }}>EDIT</button>
             </li>
           )}
         </ul>
